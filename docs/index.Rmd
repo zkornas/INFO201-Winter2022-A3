@@ -1,0 +1,104 @@
+---
+title: "A3 INFO 201"
+author: "Zacharia Kornas"
+Date: "02/25/2022"
+output: html_document
+---
+
+```{r, include=FALSE}
+options(repos = list(CRAN="http://cran.rstudio.com/"))
+source("../source/analysis.R")
+knitr::opts_chunk$set(echo = TRUE)
+```
+[Link to website](https://info-201a-wi22.github.io/a3-zkornas/)
+
+# Problem Domain: 
+### Understanding racial injustice in American Incarceration
+
+In the last ten years Americans have begun to look critically at the justice system in our country. The clear pattern of racial injustice and continued systematic oppression of minorities, specifically African Americans, has been discussed in mainstream media. The data analyzed in this report and sourced by _Vera, Institute of Justice_ shows just how severe the systematic oppression of minority groups in the USA is. In this report, we will analyze the data and uncover trends of how different racial groups in the United States are threatened by incarceration.
+
+
+### Values of interest
+
+**Value One:** Out of all the counties in the United States, which have the largest incarcerated population by race?
+- Black: `r highest_black_jail_pop` (hundreds), `r highest_black_jail_county`, `r highest_black_jail_state`
+
+- White: `r highest_white_jail_pop` (hundreds), `r highest_white_jail_county`, `r highest_white_jail_state`
+
+- Latinx: `r highest_latinx_jail_pop` (hundreds), `r highest_latinx_jail_county`, `r highest_latinx_jail_state`
+
+- Asian and Pacific Islander: `r highest_aapi_jail_pop` (hundreds), `r highest_aapi_jail_county`, `r highest_aapi_jail_state`
+
+- Native: `r highest_native_jail_pop` (hundreds), `r highest_native_jail_county`, `r highest_native_jail_state`
+
+- Other: `r highest_other_jail_pop` (hundreds), `r highest_other_jail_county`, `r highest_other_jail_state`
+
+I decided to look at these values to give me a sense of where specific racial groups may be facing the most systematic oppression in the country.
+
+**Value Two:** Out of all the counties, which have the highest ratio of incarcerated vs total population of both black and white populations?
+
+- Black: `r highest_ratio_black_inc`, `r highest_ratio_black_county`, `r highest_ratio_black_state`
+
+- White: `r highest_ratio_white_inc`, `r highest_ratio_white_county`, `r highest_ratio_white_state`
+
+I chose to look at these variables as it is known that African Americans are at higher risk of incarceration in the United States compared to Caucasians, and this variable allows me to see where both African Americans and Caucasians are targeted by the prison system the most, and to what severity, in the United States. 
+
+**Value Three:** In the most recently recorded year, what is the average ratio of incarcerated black and white populations vs total racial population in a region?
+
+- Black: `r mean_ratio_black_inc`
+
+- White: `r mean_ratio_white_inc`
+
+I wanted to look at the average ratio of incarceration by race across the USA to get an understanding of how African American communities are impacted compared to that of Caucasian communities. This will hopefully provide some insight into the extent of the issue we are facing.
+
+**Value Four:** In the most recently recorded year, what is the percent of black and white populations incarcerated vs total racial population in King County, Washington?
+
+- Black: In King County, African Americans make up `r perc_black_king_total_curr`% of the population and `r perc_black_king_jail_curr`% of the the incarcerated population.
+
+- White: In King County, White people make up `r perc_white_king_total_curr`% of the population and `r perc_white_king_jail_curr`% of the incarcerated population.
+
+I specifically wanted to look at this issue in the context of King County, as this is where we live. I think seeing the rate of incarcerated African Americans compared to Caucasians in an area we see as liberal and progressive shows us how deeply ingrained this issue is, in our society.
+
+**Value Five:** In the earliest recorded year, what is percent of the total population of King County was made up of African Americans vs Caucasians? What percent of the incarcerated population in the same year was made up of African Americans vs Caucasians?
+
+- Black: In the earliest recorded year, African Americans made up `r perc_black_king_total_past`% of the total population and `r perc_black_king_jail_past`% of the incarcerated population.
+
+- White: In the earliest recorded year, Caucasians made up `r perc_white_king_total_past`% of the total population and `r perc_white_king_jail_past`% of the incarcerated population.
+
+After looking at the most recent data in King County, I wanted to see how incarceration rates changed from the past. I looked at the earliest recorded year, 1990, and will hopefully be able to see if the trend in incarceration by racial communities is increasing, decreasing, or remaining the same.
+
+### Summary
+
+_Variable 1_ gives us an idea of where each racial group is facing the most difficulty with incarceration rates across the United States. Seeing the high number of incarcerated individuals by race pushed me to look at _Variable 2_ to get an understanding of the ratio of incarcerated to total population of Caucasians and African Americans in order to gain an understanding of the scale of the issue. After seeing that there is one county where the ratio of incarcerated African Americans to total African American population is 3, meaning that for every African American in that county, there are three African Americans incarcerated, I wanted to do further investigation as to why this is the case for that county specifically (`r highest_ratio_black_county`, `r highest_ratio_black_state`). _Variable 3_ gave me insight into the problem at a larger scale across the nation, where we see that while only 0.4% of the White population is incarcerated, 2.5% of the African American population is incarcerated. This means that on average, African Americans are **6.25** times at greater risk of facing incarceration than Caucasians in the United States in 2018. I was hoping that _Variable 4_ would show some justice at a local scale and that King County would be more equitable than the rest of the nation due to the general progressiveness of its population. I was disheartened to see that in King County African Americans only make up about 7% of the population, but 30% of the total incarcerated population, and that White people make up a smaller portion of the incarcerated population compared to that of the total population of King County. This pushed me to see how these rates changed over the years in King County in _Variable 5_, where we saw not much change as African Americans continue to make up about 30% of the incarcerated population while only making up around 5% of the total population.
+
+### Graphs
+
+#### **Graph 1:** Number of White and Black incarcerated peoples in King County from 1990 to 2018
+
+``` {r echo=FALSE}
+white_black_ratio_king_year
+```
+
+
+
+Chart 1 was included in order to get a better idea of how incarceration rates for African Americans and Caucasians changed over time in King County. While rates seem to have started to steady out in the early 2000s, it is clear that African Americans are at a greater risk of facing incarceration compared to Caucasians.
+
+#### **Graph 2:** Ratio of incarcerated individuals to total racial population by race in King County 2018
+
+``` {r echo=FALSE}
+race_king_chart
+```
+
+
+
+Chart 2 was included to see what portion of each racial group is incarcerated in King County. This gives us a better idea about which groups face higher rates discrimination by the prison system in the United States. It is clear after looking at this chart that African Americans have significantly higher rates of incarceration compared to any other racial group.
+
+#### **Graph 3:** Map of ratio of incarcerated African Americans to total African American population by county in 2018
+
+``` {r echo=FALSE}
+black_inc_map
+```
+
+
+
+Chart 3 was included in this report to see where African Americans face the most discrimination in the United States. This chart was interesting as I was expecting to see a higher rate of incarceration in the Southern United States, as the South seems to be more racially divided. What appear from the chart is that there is no clear pattern as to which regions African Americans face the most discrimination, it appears to almost be random.
