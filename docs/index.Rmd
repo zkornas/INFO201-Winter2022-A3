@@ -10,7 +10,7 @@ options(repos = list(CRAN="http://cran.rstudio.com/"))
 source("../source/analysis.R")
 knitr::opts_chunk$set(echo = TRUE)
 ```
-[Link to website](https://info-201a-wi22.github.io/a3-zkornas/)
+[Link to website](https://zkornas.github.io/INFO201-Winter2022-A3/)
 
 # Problem Domain: 
 ### Understanding racial injustice in American Incarceration
