@@ -11,4 +11,4 @@ In this assignment, you'll create the necessary files to perform the analysis de
 #### Webserver set-up
 * Once you have completed your report, make sure to **change your repository settings** so that you can view the hosted website.
 
-## You can view the complete website [here](https://zkornas.github.io/INFO201-Winter2022-A3/)
+## You can view the complete website [here](https://zkornas.github.io/INFO201-Winter2022-A3/)!
